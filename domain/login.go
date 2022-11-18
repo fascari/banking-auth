@@ -18,9 +18,8 @@ type Login struct {
 func (l Login) ClaimsForAccessToken() AccessTokenClaims {
 	if l.Accounts.Valid && l.CustomerId.Valid {
 		return l.claimsForUser()
-	} else {
-		return l.claimsForAdmin()
 	}
+	return l.claimsForAdmin()
 }
 
 func (l Login) claimsForUser() AccessTokenClaims {
